@@ -1,2 +1,7 @@
+
 test "First", ->
-    ok(something() == 100, 'something is wrong')
+  Ember.run App, "advanceReadiness"
+
+  visit('/').then ->
+    message = find('#message').text()
+    ok("Hello World" == message, "Message missing")
